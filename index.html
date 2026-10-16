@@ -1,73 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1">
-  <title>TheHelperOutterAi</title>
-
-  <style>
-    body {
-      background: #080814;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 40px 15px;
-    }
-
-    h1 {
-      color: #8b5cf6;
-    }
-
-    button {
-      background: #6366f1;
-      color: white;
-      border: none;
-      padding: 15px 30px;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-
-    .card {
-      background: #17172b;
-      padding: 25px;
-      margin: 20px auto;
-      border-radius: 15px;
-      max-width: 400px;
-    }
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TheHelperOutterAi — Your AI. Your Assistant. Your Solution.</title>
+<style>
+:root{color-scheme:dark;--bg:#080b19;--panel:#141a30;--line:#313956;--muted:#aebbd8;--accent:#8876ff}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% 0%,#222050,#080b19 55%);color:#fff;font-family:system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}header{padding:22px max(20px,calc((100vw - 1050px)/2));display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid #ffffff1b}a{color:#bcb3ff}.brand{font-size:1.3rem;font-weight:800;letter-spacing:-.03em}.brand span{color:#a69aff}main{max-width:1050px;margin:auto;padding:35px 20px 80px}.hero{text-align:center;padding:38px 0 22px}.hero h1{font-size:clamp(2rem,5vw,3.5rem);margin:0 0 10px}.hero p{color:var(--muted);font-size:1.1rem}.pill{font-size:.8rem;border:1px solid #6d60ca;border-radius:999px;padding:7px 13px;color:#c7c0ff;display:inline-block;margin-bottom:15px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.card{background:#141a30ee;border:1px solid var(--line);border-radius:18px;padding:23px;box-shadow:0 15px 40px #0003}.card h3{margin:0 0 8px}.price{font-size:1.8rem;font-weight:800;margin:12px 0}.muted,.card p{color:var(--muted)}button{background:linear-gradient(110deg,#6366f1,#9259ee);border:0;color:white;padding:12px 17px;border-radius:10px;font-weight:700;cursor:pointer}button:hover{filter:brightness(1.12)}button.secondary{background:#283252;border:1px solid #58638d}button:disabled{opacity:.55;cursor:not-allowed}.auth{max-width:450px;margin:20px auto 40px}.auth input{display:block;width:100%;background:#090e20;color:white;border:1px solid #485274;border-radius:10px;padding:13px;margin:12px 0;font-size:1rem}.auth button{width:100%;margin-top:9px}.row{display:flex;gap:10px}.row button{flex:1}.notice{padding:12px;border-radius:10px;background:#253258;color:#dce6ff;line-height:1.45;margin:14px 0;white-space:pre-wrap}.hidden{display:none!important}.section-title{margin:40px 0 16px}.tool{min-height:130px}.tool strong{display:block;margin-bottom:8px}#userEmail{color:var(--muted);font-size:.9rem}.status{margin-top:16px;color:#c8bfff}.disclaimer{font-size:.85rem;color:#aebbd8;line-height:1.5}footer{text-align:center;color:#94a0be;padding:30px 20px;border-top:1px solid #ffffff1b}@media(max-width:740px){.grid{grid-template-columns:1fr}.hero{padding-top:20px}header{flex-wrap:wrap}.card{padding:20px}}
+</style>
 </head>
-
 <body>
-  <h1>TheHelperOutterAi</h1>
-
-  <h2>Your AI. Your Assistant. Your Solution.</h2>
-
-  <p>Your all-in-one AI assistant for everyday life
-     and business.</p>
-
-  <button onclick="alert('Coming soon!')">
-    Get Started
-  </button>
-
-  <h2>Membership Plans</h2>
-
-  <div class="card">
-    <h3>Free</h3>
-    <h2>$0/month</h2>
-    <p>5 AI messages per day</p>
-  </div>
-
-  <div class="card">
-    <h3>Pro</h3>
-    <h2>$9.99/month</h2>
-    <p>100 AI messages per day</p>
-  </div>
-
-  <div class="card">
-    <h3>Premium</h3>
-    <h2>$19.99/month</h2>
-    <p>Advanced AI tools</p>
-  </div>
+<header><div class="brand">✦ TheHelper<span>OutterAi</span></div><div><span id="userEmail"></span> <button id="logoutBtn" class="secondary hidden">Log out</button></div></header>
+<main>
+<section class="hero"><span class="pill">Your all-in-one AI workspace</span><h1>Make life and business easier.</h1><p>Your AI. Your Assistant. Your Solution.</p></section>
+<section id="setupNotice" class="card notice">Setup required: Add your Supabase Project URL and <strong>publishable</strong> key to the two marked lines near the bottom of this HTML file before signup and login will work. Never add a secret/service-role key.</section>
+<section id="authPanel" class="card auth">
+<h2 id="authTitle">Create your account</h2><p class="muted">An account is required to use TheHelperOutterAi.</p>
+<form id="authForm"><input id="email" type="email" placeholder="Email address" autocomplete="email" required><input id="password" type="password" placeholder="Password (8+ characters)" autocomplete="new-password" minlength="8" required><button id="emailSubmit" type="submit">Sign up with email</button></form>
+<button id="switchMode" class="secondary">Already have an account? Log in</button>
+<p class="muted" style="text-align:center">Or continue with</p><div class="row"><button id="googleBtn" class="secondary">Google</button><button id="appleBtn" class="secondary">Apple</button></div>
+<button id="resetBtn" class="secondary">Forgot password?</button>
+<div id="authStatus" class="status" role="status" aria-live="polite"></div>
+<p class="disclaimer">Google and Apple buttons require provider configuration in Supabase and their respective developer consoles. Signup email delivery may be limited by Supabase's default email service.</p>
+</section>
+<section id="dashboard" class="hidden"><div class="card"><h2>Welcome to your dashboard ✨</h2><p class="muted">You're signed in! Your AI tools will appear here as we connect the backend.</p><div class="notice">AI chat, image generation, and business automation are not active yet. We will add a secure server connection before enabling them.</div></div><h2 class="section-title">Your tools</h2><div class="grid"><div class="card tool"><strong>🤖 AI Chat</strong><p>Ask questions and get help.</p><button disabled>Coming soon</button></div><div class="card tool"><strong>💼 Business Assistant</strong><p>Plan, write, and grow your business.</p><button disabled>Coming soon</button></div><div class="card tool"><strong>📄 Resume & Writing</strong><p>Create polished documents.</p><button disabled>Coming soon</button></div></div></section>
+<h2 class="section-title">Membership plans</h2><section class="grid"><div class="card"><h3>Free</h3><div class="price">$0 <small>/month</small></div><p>Planned: 5 AI messages per day</p><button disabled>Included at launch</button></div><div class="card"><h3>Pro</h3><div class="price">$9.99 <small>/month</small></div><p>Planned: 100 AI messages per day</p><button disabled>Coming soon</button></div><div class="card"><h3>Premium</h3><div class="price">$19.99 <small>/month</small></div><p>Planned: higher limits and advanced tools</p><button disabled>Coming soon</button></div></section><p class="disclaimer">Memberships are previews only. No payments are collected, and message limits are not enforced yet.</p>
+</main><footer>© <span id="year"></span> TheHelperOutterAi</footer>
+<script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+// STEP 1: Replace the placeholders below with YOUR Supabase values.
+// Project URL: Supabase → Project overview or Project Settings → Data API.
+// Publishable key: Supabase → Project Settings → API Keys → Publishable key.
+// Never put a secret key, service_role key, or database password here.
+const SUPABASE_URL = 'https://ollpvmkrpjqddlbapzgg.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_veTOJRBNhJPse2JI6Mdang_RiomBAPN';
+const configured = SUPABASE_URL.startsWith('https://') && SUPABASE_KEY.startsWith('sb_publishable_');
+const $ = id => document.getElementById(id);
+$('year').textContent = new Date().getFullYear();
+const status = message => { $('authStatus').textContent = message; };
+let client = null;
+let isLogin = false;
+if (configured) { client = createClient(SUPABASE_URL, SUPABASE_KEY); $('setupNotice').classList.add('hidden'); }
+else { status('Website connection not configured yet. Add your Supabase URL and publishable key to index.html.'); }
+function setMode(login){isLogin=login;$('authTitle').textContent=login?'Welcome back':'Create your account';$('emailSubmit').textContent=login?'Log in with email':'Sign up with email';$('switchMode').textContent=login?'Need an account? Sign up':'Already have an account? Log in';$('password').autocomplete=login?'current-password':'new-password';status('');}
+$('switchMode').addEventListener('click',()=>setMode(!isLogin));
+function showSession(session){const signedIn=!!session?.user;$('authPanel').classList.toggle('hidden',signedIn);$('dashboard').classList.toggle('hidden',!signedIn);$('logoutBtn').classList.toggle('hidden',!signedIn);$('userEmail').textContent=signedIn?session.user.email||'Signed in':'';}
+if(client){client.auth.getSession().then(({data,error})=>{if(error)status(error.message);showSession(data?.session);});client.auth.onAuthStateChange((_event,session)=>showSession(session));}
+$('authForm').addEventListener('submit',async e=>{e.preventDefault();if(!client){status('Add your Supabase connection settings first.');return;}const email=$('email').value.trim(),password=$('password').value;const btn=$('emailSubmit');btn.disabled=true;status('Please wait…');try{const result=isLogin?await client.auth.signInWithPassword({email,password}):await client.auth.signUp({email,password,options:{emailRedirectTo:location.origin+location.pathname}});if(result.error)throw result.error;if(!isLogin)status(result.data.session?'Account created and signed in.':'Check your email for a confirmation link, then log in.');else status('Signed in successfully.');}catch(err){status(err.message||'Something went wrong.');}finally{btn.disabled=false;}});
+async function social(provider){if(!client){status('Add your Supabase connection settings first.');return;}status('Redirecting to '+provider+'…');const {error}=await client.auth.signInWithOAuth({provider,options:{redirectTo:location.origin+location.pathname}});if(error)status(error.message+' Check the '+provider+' provider configuration in Supabase.');}
+$('googleBtn').addEventListener('click',()=>social('google'));
+$('appleBtn').addEventListener('click',()=>social('apple'));
+$('resetBtn').addEventListener('click',async()=>{if(!client){status('Add your Supabase connection settings first.');return;}const email=$('email').value.trim();if(!email){status('Enter your email address above first.');return;}const {error}=await client.auth.resetPasswordForEmail(email,{redirectTo:location.origin+location.pathname});status(error?error.message:'If the address is eligible, a password-reset email will be sent.');});
+$('logoutBtn').addEventListener('click',async()=>{if(!client)return;const {error}=await client.auth.signOut();if(error)status(error.message);});
+client?.auth.onAuthStateChange(async(event)=>{if(event==='PASSWORD_RECOVERY'){const password=prompt('Enter a new password (8 or more characters):');if(password===null)return;if(password.length<8){alert('Password must be at least 8 characters.');return;}const {error}=await client.auth.updateUser({password});alert(error?error.message:'Password updated.');}});
+</script>
 </body>
 </html>
